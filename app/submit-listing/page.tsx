@@ -66,11 +66,11 @@ export default function SubmitListing() {
   };
 
   return (
-    <div className="max-w-md mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Submit a Listing</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+      <h1 className="text-3xl font-bold mb-6 text-blue-600">Submit a Listing</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="homeName" className="block mb-1">Home Name</label>
+          <label htmlFor="homeName" className="block mb-2 font-semibold text-gray-700">Home Name</label>
           <input
             type="text"
             id="homeName"
@@ -78,11 +78,11 @@ export default function SubmitListing() {
             value={formData.homeName}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border rounded-md"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <div>
-          <label htmlFor="location" className="block mb-1">Location</label>
+          <label htmlFor="location" className="block mb-2 font-semibold text-gray-700">Location</label>
           <input
             type="text"
             id="location"
@@ -90,11 +90,11 @@ export default function SubmitListing() {
             value={formData.location}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border rounded-md"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <div>
-          <label htmlFor="price" className="block mb-1">Price per Night (MYR)</label>
+          <label htmlFor="price" className="block mb-2 font-semibold text-gray-700">Price per Night (MYR)</label>
           <input
             type="number"
             id="price"
@@ -104,21 +104,21 @@ export default function SubmitListing() {
             required
             min="0"
             step="0.01"
-            className="w-full px-3 py-2 border rounded-md"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <div>
-          <label htmlFor="image" className="block mb-1">Upload Image</label>
+          <label htmlFor="image" className="block mb-2 font-semibold text-gray-700">Upload Image</label>
           <input
             type="file"
             id="image"
             name="image"
             onChange={handleChange}
             accept="image/*"
-            className="w-full px-3 py-2 border rounded-md"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
           />
         </div>
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+        <button type="submit" className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors font-semibold">
           Submit Listing
         </button>
       </form>
