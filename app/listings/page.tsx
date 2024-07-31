@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 const dummyListings = [
   {
@@ -46,11 +49,31 @@ const dummyListings = [
 ];
 
 export default function Listings() {
+  const [listings, setListings] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Simulate fetching data
+    setTimeout(() => {
+      setListings(dummyListings);
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6">Vacation Rentals in Malaysia</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {dummyListings.map((listing) => (
+        {listings.map((listing) => (
           <div key={listing.id} className="bg-white rounded-lg shadow-md overflow-hidden">
             <Image
               src={listing.imageUrl}
