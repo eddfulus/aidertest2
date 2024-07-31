@@ -58,6 +58,7 @@ export default function Listings() {
     setTimeout(() => {
       setListings(dummyListings);
       setIsLoading(false);
+      console.log('Listings set:', dummyListings);
     }, 1000);
   }, []);
 
