@@ -81,6 +81,7 @@ export default function Listings() {
               width={300}
               height={200}
               className="w-full h-48 object-cover"
+              unoptimized
             />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">{listing.homeName}</h2>
