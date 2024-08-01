@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -20,10 +21,24 @@ const dummyPosts: BlogPost[] = Array.from({ length: 20 }, (_, i) => ({
 export default function BlogPost() {
   const params = useParams();
   const postId = Number(params.id);
-  const post = dummyPosts.find(p => p.id === postId);
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate fetching data
+    setTimeout(() => {
+      const foundPost = dummyPosts.find(p => p.id === postId);
+      setPost(foundPost || null);
+      setIsLoading(false);
+    }, 500);
+  }, [postId]);
+
+  if (isLoading) {
+    return <div className="max-w-4xl mx-auto px-4 py-8">Loading...</div>;
+  }
 
   if (!post) {
-    return <div>Post not found</div>;
+    return <div className="max-w-4xl mx-auto px-4 py-8">Post not found</div>;
   }
 
   return (
