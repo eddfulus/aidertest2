@@ -33,22 +33,22 @@ export default function BlogPost() {
     }, 500);
   }, [postId]);
 
-  if (isLoading) {
-    return <div className="max-w-4xl mx-auto px-4 py-8">Loading...</div>;
-  }
-
-  if (!post) {
-    return <div className="max-w-4xl mx-auto px-4 py-8">Post not found</div>;
-  }
-
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Link href="/blog" className="text-blue-600 hover:underline mb-4 inline-block">&larr; Back to Blog</Link>
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-      <p className="text-gray-600 mb-4">{post.date}</p>
-      <div className="prose max-w-none">
-        <p>{post.content}</p>
-      </div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : !post ? (
+        <p>Post not found</p>
+      ) : (
+        <>
+          <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+          <p className="text-gray-600 mb-4">{post.date}</p>
+          <div className="prose max-w-none">
+            <p>{post.content}</p>
+          </div>
+        </>
+      )}
     </div>
   );
 }

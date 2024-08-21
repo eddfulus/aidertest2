@@ -27,6 +27,14 @@ export default function Header() {
             </li>
             <li>
               <Link
+                href="/blog"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/signin"
                 className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
               >
