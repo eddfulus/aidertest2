@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function SubmitListing() {
   const [formData, setFormData] = useState({
-    homeName: '',
-    location: '',
-    price: '',
+    homeName: "",
+    location: "",
+    price: "",
     image: null as File | null,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: files ? files[0] : value,
     }));
@@ -21,8 +21,8 @@ export default function SubmitListing() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // TODO: Implement form submission logic
-    console.log('Form submitted:', formData);
-    alert('Listing submitted successfully!');
+    console.log("Form submitted:", formData);
+    alert("Listing submitted successfully!");
   };
 
   return (
@@ -30,7 +30,9 @@ export default function SubmitListing() {
       <h1 className="text-3xl font-bold mb-6">Submit a Listing</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="homeName" className="block mb-1 font-medium">Home Name</label>
+          <label htmlFor="homeName" className="block mb-1 font-medium">
+            Home Name
+          </label>
           <input
             type="text"
             id="homeName"
@@ -42,7 +44,9 @@ export default function SubmitListing() {
           />
         </div>
         <div>
-          <label htmlFor="location" className="block mb-1 font-medium">Location</label>
+          <label htmlFor="location" className="block mb-1 font-medium">
+            Location
+          </label>
           <input
             type="text"
             id="location"
@@ -54,7 +58,9 @@ export default function SubmitListing() {
           />
         </div>
         <div>
-          <label htmlFor="price" className="block mb-1 font-medium">Price per Night (MYR)</label>
+          <label htmlFor="price" className="block mb-1 font-medium">
+            Price per Night (MYR)
+          </label>
           <input
             type="number"
             id="price"
@@ -68,7 +74,9 @@ export default function SubmitListing() {
           />
         </div>
         <div>
-          <label htmlFor="image" className="block mb-1 font-medium">Upload Image</label>
+          <label htmlFor="image" className="block mb-1 font-medium">
+            Upload Image
+          </label>
           <input
             type="file"
             id="image"
@@ -78,7 +86,10 @@ export default function SubmitListing() {
             className="w-full px-3 py-2 border rounded-md"
           />
         </div>
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors">
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+        >
           Submit Listing
         </button>
       </form>
